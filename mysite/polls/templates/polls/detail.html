@@ -1,6 +1,17 @@
-<h1>{{ question.question_text }}</h1>
-<ul>
-  {% for choice in question.choice_set.all %}
-  <li>{{ choice.choice_text }}</li>
-  {% endfor %}
-</ul>
+<!-- form 태그 ; HTTP method를 post로 설정 -->
+<form action="{% url 'polls:vote' question.id %}" method="post">
+  {% csrf_token %}
+  <fieldset>
+    <legend><h1>{{ question.question_text }}</h1></legend>
+    {% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+    {% endif %} {% for choice in question.choice_set.all %}
+    <!-- radio 버튼 -->
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+    <!-- 각 라디오 버튼 id마다 label 설정 -->
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+    {% endfor %}
+  </fieldset>
+  <!-- submit 버튼 -->
+  <input type="submit" value="Vote" />
+</form>

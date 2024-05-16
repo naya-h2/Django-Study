@@ -115,3 +115,12 @@ b'\n<ul>\n  \n  <li><a href="/polls/3/">\xec\x9d\xb4\xeb\xa6\x84\xec\x9d\xb4 \xe
 >>> response.context["latest_question_list"] #최신순으로 정렬된 Question list
 <QuerySet [<Question: 이름이 뭐야?>, <Question: 질문2>, <Question: 질문을 적자!>]>
 ```
+
+---
+
+## static file namespacing
+
+- polls/static/polls 디렉토리 내에서 정적 파일 추가
+- 장고는 이름이 일치하는 첫 번째 정적 파일 선택
+- 다른 응용프로그램에 같은 이름이 있으면 구별을 못하니까 따로 디렉토리를 생성한다.
+- static 파일에 .css, images 디렉토리(사진) 등을 만들수 있다.

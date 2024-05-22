@@ -77,3 +77,13 @@ list_filter = ["pub_date"]
 #polls/admin.py에 추가
 search_fields = ["question_text"]
 ```
+
+## third-party package 추가하기: Django Debug Toolbar
+
+```shell
+py -m pip install django-debug-toolbar
+```
+
+- 장고의 장점 중 하나가 풍부한 third party 패키지 생태계
+- Django Debug Toolbar
+  - 장고 웹 어플리케이션을 디버깅하는 유용한 도구
